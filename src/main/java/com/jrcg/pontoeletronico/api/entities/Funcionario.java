@@ -59,7 +59,7 @@ public class Funcionario implements Serializable {
 	@Column(nullable = false)
 	private PerfilEnum perfil;
 	
-	@Column(name = "data_criacao", nullable = false)
+	@Column(name = "data_criacao" ,nullable = false)
 	private Date dataCriacao;
 	
 	@Column(name = "data_atualizacao", nullable = false)
@@ -70,6 +70,10 @@ public class Funcionario implements Serializable {
 	
 	@OneToMany(mappedBy = "funcionario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Lancamento> lancamentos;
+	
+	public Funcionario () {
+		
+	}
 	
 	public Long getId() {
 		return id;

@@ -82,7 +82,7 @@ public class FuncionarioController {
 	 * @throws NoSuchAlgorithmException
 	 */
 	
-	private void atualizarDadosFuncionario(Funcionario funcionario, @Valid FuncionarioDto funcionarioDto,BindingResult result) 
+	private void atualizarDadosFuncionario(Funcionario funcionario, FuncionarioDto funcionarioDto,BindingResult result) 
 					throws NoSuchAlgorithmException {
 			funcionario.setNome(funcionarioDto.getNome());
 			if (!funcionario.getEmail().equals(funcionarioDto.getEmail())) {
@@ -95,7 +95,7 @@ public class FuncionarioController {
 			funcionarioDto.getQtdHoraAlmoco().ifPresent(qtdHoraAlmoco -> funcionario.setQtdHorasAlmoco(Float.valueOf(qtdHoraAlmoco)));
 			
 			funcionario.setQtdHorasTrabalhoDia(null);
-			funcionarioDto.getQtdHorasTrabalhoDia().ifPresent(qtdHorasAlmocoTrabDia -> funcionario.setQtdHorasTrabalhoDia(Float.valueOf(qtdHorasAlmocoTrabDia)));
+			funcionarioDto.getQtdHorasTrabalhoDia().ifPresent(qtdHorasTrabDia -> funcionario.setQtdHorasTrabalhoDia(Float.valueOf(qtdHorasTrabDia)));
 			
 			funcionario.setValorHora(null);
 			funcionarioDto.getValorHora().ifPresent(valorHora -> funcionario.setValorHora(new BigDecimal(valorHora)));

@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -121,6 +122,7 @@ public class Lancamento implements Serializable {
 		dataAtualizacao = new Date();
 	}
 	
+	@PrePersist
 	public void prePersist() {
 		final Date atual = new Date();
 		dataCriacao = atual;
