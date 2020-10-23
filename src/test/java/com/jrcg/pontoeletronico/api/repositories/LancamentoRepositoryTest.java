@@ -1,6 +1,8 @@
 package com.jrcg.pontoeletronico.api.repositories;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
+import static org.junit.Assert.assertEquals;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
@@ -57,7 +59,7 @@ public class LancamentoRepositoryTest {
 	public void testBuscarLancamentosPorFuncionarioId() {
 		List<Lancamento> lancamentos = this.lancamentoRepository.findByFuncionarioId(funcionarioId);
 		
-		assertEquals(2, lancamentos.size());
+		assertEquals(1, lancamentos.size());
 	}
 	
 	@Test
@@ -65,7 +67,7 @@ public class LancamentoRepositoryTest {
 		PageRequest page = PageRequest.of(0, 10);
 		Page<Lancamento> lancamentos = this.lancamentoRepository.findByFuncionarioId(funcionarioId, page);
 		
-		assertEquals(2, lancamentos.getTotalElements());
+		assertEquals(1, lancamentos.getTotalElements());
 	}
 	
 	private Lancamento obterDadosLancamentos(Funcionario funcionario) {
